@@ -1,16 +1,21 @@
 import { handleLogin } from './js/Login.js';
 import { handleLogout } from './js/LogoutButton.js';
 import { uploadProduct } from './js/ProductUploader.js';
-import { auth } from './firebase-config.js'; // 認証状態の監視のためにインポート
+import { auth } from './firebase-config.js'; 
 import { onAuthStateChanged } from "firebase/auth";
 
 document.addEventListener('DOMContentLoaded', () => {
-    // HTML elements
+
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    
     const loginBtn = document.getElementById('loginButton');
     const logoutBtn = document.getElementById('logoutButton');
     const uploadBtn = document.getElementById('uploadButton');
     const userStatus = document.getElementById('userStatus');
     const uploaderArea = document.getElementById('uploaderArea');
+    const loginForm = document.getElementById('loginForm'); 
+    
     const productNameInput = document.getElementById('productName');
     const productImageInput = document.getElementById('productImage');
 
@@ -19,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (user) {
             // Logged in
             userStatus.textContent = `Current Status: **Logged in** (User: ${user.email})`;
-            loginBtn.style.display = 'none';
+            loginForm.style.display = 'none'; 
             logoutBtn.style.display = 'inline';
             uploaderArea.style.display = 'block';
         } else {
             // Logged out
             userStatus.textContent = "Current Status: **Logged out**";
-            loginBtn.style.display = 'inline';
+            loginForm.style.display = 'block';
             logoutBtn.style.display = 'none';
             uploaderArea.style.display = 'none';
         }
@@ -33,9 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Event Listeners
     
-    // Login
+    // Login 
     if (loginBtn) {
-        loginBtn.addEventListener('click', handleLogin);
+        loginBtn.addEventListener('click', async () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            
+            if (email && password) {
+                // 💡 handleLogin(email, password) を呼び出す
+                await handleLogin(email, password); 
+            } else {
+                alert("Please enter both email and password.");
+            }
+        });
     }
 
     // Logout

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <title>Products List - You-teach-share Educational materials market</title>
+</head>
+<body>
+    <h1>All Educational Materials</h1> 
+    <p>Welcome! Find materials by searching below.</p>
+
+    <div id="searchControls">
+        <input type="text" id="searchInput" placeholder="Search by title or description...">
+        
+        <div>
+            <strong>Subject:</strong>
+            <button class="tagButton" data-tag="English">English</button>
+            <button class="tagButton" data-tag="Math">Math</button>
+            <button class="tagButton" data-tag="Science">Science</button>
+            <button class="tagButton" data-tag="SocialStudies">Social Studies</button>
+            <button class="tagButton" data-tag="ForeignLanguage">Foreign Language</button>
+        </div>
+
+        <div>
+            <strong>Grade Level:</strong>
+            <select id="gradeFilter">
+                <option value="">All Grades</option>
+                <option value="Kindergarten">Kindergarten</option>
+                <option value="Elementary-Lower">Elementary (Gr. 1-2)</option>
+                <option value="Elementary-Middle">Elementary (Gr. 3-4)</option>
+                <option value="Elementary-Upper">Elementary (Gr. 5-6)</option>
+                <option value="JuniorHigh">Junior High School</option>
+                <option value="HighSchool">High School</option>
+                <option value="University">University</option>
+            </select>
+            <select id="purposeFilter">
+                <option value="">All Uses</option>
+                <option value="Teacher">Teacher Use</option>
+                <option value="HomeStudy">Home Study</option>
+            </select>
+        </div>
+    </div>
+    
+    <hr>
+
+    <h2>Available Materials</h2>
+    <div id="productsList">
+        <div class="productCard">
+            <img src="placeholder.jpg" alt="Main Image" style="width:100px; height:100px;">
+            <h3>Product Title Example</h3>
+            <p>Description snippet...</p>
+            <p>Tags: #English #Elementary-Lower</p>
+            <p>Rating: ⭐⭐⭐⭐ (4.0 average)</p>
+        </div>
+    </div>
+
+    <script type="module" src="./js/products-list.js"></script>
+</body>
+</html>

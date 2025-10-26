@@ -1,15 +1,21 @@
 {
-  "name": "you-teach-share-english-new",
+  "name": "your-teach-share-english-new-ver",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "dev": "vite",  
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^12.4.0"
+    "firebase": "^10.0.0" 
+    
+  },
+  "devDependencies": {
+    "vite": "^5.0.0" 
   }
 }
+
